@@ -61,7 +61,8 @@ func (m Message) Send() {
 		if body, err := ioutil.ReadAll(resp.Body); err == nil {
 			defer resp.Body.Close()
 			log.Printf("%s\n%s\n", m.String(), body)
-		}
+		    return body
+        }
 	}
 }
 
