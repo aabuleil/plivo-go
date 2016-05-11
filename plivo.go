@@ -52,7 +52,7 @@ func (m Message) toMap() map[string]string {
 }
 
 // Send to send SMS.
-func (m Message) Send() {
+func (m Message) Send() string {
 	jsonData, _ := json.Marshal(m.toMap())
 	req, _ := http.NewRequest("POST", m.URL("/Message/"), bytes.NewReader(jsonData))
 	req.URL.User = url.UserPassword(m.account.User, m.account.Password)
